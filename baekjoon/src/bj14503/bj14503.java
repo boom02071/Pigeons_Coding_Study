@@ -54,7 +54,7 @@ public class bj14503 {
 		int ny = curY + dy[nd];
 		
 		
-		if(nx<0 || ny<0 || nx>=n || ny>=m || arr[nx][ny]==1) return;
+		if(arr[nx][ny]==1) return;
 		simul(nx,ny,curD);
 		
 	}
