@@ -9,7 +9,7 @@ public class bj14503 {
 	static int result;
 	static int[] dx = {-1,0,1,0};
 	static int[] dy = {0,1,0,-1};
-	public static void main(String[] args) {
+	public static void bj14503(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
@@ -54,7 +54,7 @@ public class bj14503 {
 		int ny = curY + dy[nd];
 		
 		
-		if(arr[nx][ny]==1) return;
+		if(nx<0 || ny<0 || nx>=n || ny>=m || arr[nx][ny]==1) return;
 		simul(nx,ny,curD);
 		
 	}
