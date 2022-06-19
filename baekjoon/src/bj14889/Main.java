@@ -17,11 +17,11 @@ public class Main {
 			for(int j=0;j<n;j++)
 				arr[i][j]=sc.nextInt();
 		
-		func(0,0);
+		func(1,0);
 		System.out.println(result);
 	}
 	static void func(int index,int cnt) {
-		//ÆÀÀ» ÀüºÎ ³ª´« °æ¿ì
+		//íŒ€ì„ ë‚˜ëˆˆ ê²½ìš°
 		if(cnt==n/2) {
 			int start=0;
 			int link=0;
@@ -41,11 +41,12 @@ public class Main {
 		
 		
 		
-		//ÆÀ ³ª´©±â
-		team[index]=true;
-		func(index+1,cnt+1);
-		team[index]=false;
-		func(index+1,cnt);
+		//íŒ€ ë‚˜ëˆ„ê¸°
+		for(int i=index;i<n;i++) {
+			team[i]=true;
+			func(i+1,cnt+1);
+			team[i]=false;
+		}
 	}
 
 }
