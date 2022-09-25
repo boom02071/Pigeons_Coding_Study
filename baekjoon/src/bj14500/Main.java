@@ -25,22 +25,16 @@ public class Main {
 		
 		for(int i=0;i<n;i++) {
 			for(int j=0;j<m;j++) {
-				bruteForce(i,j,0);
+				visited[i][j] = true;
+				bruteForce(i,j,1,arr[i][j]);
+				visited[i][j] = false;
 			}
 		}
 		
 		System.out.println(result);
 	}
-	static void bruteForce(int x,int y,int index) {
+	static void bruteForce(int x,int y,int index, int temp) {
 		if(index == 4) {
-			int temp=0;
-			for(int i=0;i<n;i++) {
-				for(int j=0;j<m;j++) {
-					if(visited[i][j])
-						temp += arr[i][j];
-				}
-			}
-			
 			result = Math.max(result, temp);
 			return;
 		}
@@ -54,9 +48,9 @@ public class Main {
 				continue;
 			
 			visited[nx][ny]=true;
-			bruteForce(nx,ny,index+1);
+			bruteForce(nx,ny,index+1,temp+arr[nx][ny]);
 			if(index==2)
-				bruteForce(x,y,index+1);
+				bruteForce(x,y,index+1,temp+arr[nx][ny]);
 			visited[nx][ny]=false;
 		}
 	}
